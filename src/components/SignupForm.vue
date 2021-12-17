@@ -23,6 +23,10 @@
         <label>Accept Terms and Conditions</label>
     </div>
 
+    <div class="submit">
+        <button>Create an account</button>
+    </div>
+
 </form>
 
 <p>Email: {{ email }}</p>
@@ -110,6 +114,20 @@ input[type='checkbox'] {
     letter-spacing: 1px;
     font-weight: bold;
     color: #777;
-    cursor: pointer; /* cursor changes to pointer when above */
+    cursor: pointer;
+    /* cursor changes to pointer when above */
+}
+
+button {
+    background: #0b6dff;
+    border: 0;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: white;
+    border-radius: 20px;
+}
+
+.submit {
+    text-align: center;
 }
 </style>

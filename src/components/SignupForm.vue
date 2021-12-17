@@ -1,5 +1,6 @@
 <template>
-<form @submit.prevent="handleSubmit"> <!-- preventing the html submit action to be called when submitting -->
+<form @submit.prevent="handleSubmit">
+    <!-- preventing the html submit action to be called when submitting -->
     <label>Email:</label>
     <input type="email" required v-model="email">
 
@@ -66,7 +67,15 @@ export default {
         handleSubmit() {
             // validate Password
             this.passwordError = this.password.length > 5 ?
-            '' : 'Password must be at least 6 chars long'
+                '' : 'Password must be at least 6 chars long'
+
+            if (!this.passwordError) {
+                console.log('email: ', this.email)
+                console.log('password: ', this.password)
+                console.log('role: ', this.role)
+                console.log('skills: ', this.skills)
+                console.log('terms accepted: ', this.terms)
+            }
         }
     }
 }

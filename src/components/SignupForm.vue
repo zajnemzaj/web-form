@@ -46,7 +46,9 @@ export default {
     methods: {
         addSkill(e) { // event is the parameter
             if (e.key === ',' && this.tempSkill) { // only fires if there was already an already entered key before the comma
-                this.skills.push(this.tempSkill)
+                if (!this.skills.includes(this.tempSkill)) { // true if tempSkill already includes the entered word
+                    this.skills.push(this.tempSkill)
+                }
                 this.tempSkill = ''
             }
         }

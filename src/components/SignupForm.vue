@@ -14,6 +14,9 @@
 
     <label>Skills:</label>
     <input type="text" v-model="tempSkill" @keyup="addSkill">
+    <div v-for="skill in skills" :key="skill" class="pill">
+        {{ skill }}
+    </div>
 
     <div class="terms">
         <input type="checkbox" v-model="terms" required>
@@ -36,12 +39,16 @@ export default {
             password: '',
             role: 'designer',
             terms: false,
-            tempSkill: []
+            tempSkill: '',
+            skills: []
         }
     },
     methods: {
         addSkill(e) { // event is the parameter
-            console.log(e)
+            if (e.key === ',' && this.tempSkill) { // only fires if there was already an already entered key before the comma
+                this.skills.push(this.tempSkill)
+                this.tempSkill = ''
+            }
         }
     }
 }

@@ -12,6 +12,9 @@
         <option value="designer">Web Designer</option>
     </select>
 
+    <label>Skills:</label>
+    <input type="text" v-model="tempSkill" @keyup="addSkill">
+
     <div class="terms">
         <input type="checkbox" v-model="terms" required>
         <label>Accept Terms and Conditions</label>
@@ -32,7 +35,13 @@ export default {
             email: '',
             password: '',
             role: 'designer',
-            terms: false
+            terms: false,
+            tempSkill: []
+        }
+    },
+    methods: {
+        addSkill(e) { // event is the parameter
+            console.log(e)
         }
     }
 }
@@ -69,7 +78,7 @@ select {
     color: #555;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
     display: inline-block;
     width: 16px;
     margin: 0 10px 0 0;

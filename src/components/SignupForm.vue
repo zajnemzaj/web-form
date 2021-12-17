@@ -1,5 +1,5 @@
 <template>
-<form>
+<form @submit.prevent="handleSubmit"> <!-- preventing the html submit action to be called when submitting -->
     <label>Email:</label>
     <input type="email" required v-model="email">
 
@@ -24,7 +24,7 @@
     </div>
 
     <div class="submit">
-        <button>Create an account</button>
+        <button>Create an Account</button>
     </div>
 
 </form>
@@ -60,6 +60,9 @@ export default {
             this.skills = this.skills.filter((item) => {
                 return skill !== item
             }) // filter: cycles through
+        },
+        handleSubmit() {
+            console.log('form submitted')
         }
     }
 }
